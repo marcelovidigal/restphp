@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Teste Cliente</title>
+</head>
+
+<body>
+	<form>
+		<input id="nome" type="text" size="30" />
+		<input id="enviar" type="button" value="Enviar">
+	</form>
+	<script src="jquery-2.1.1.min.js"></script>
+	<script type="text/javascript">
+	$("#enviar").click(function() {
+		
+		nome = $("#nome").val();
+		
+		$.ajax({
+			type: "GET",
+			url: "http://localhost/restphp/TesteClasse/olaMundo" + nome,
+			dataType: "json",
+			sucess: function(data, textStatus, jqXHR) {
+				alert(data.result);
+			}
+		});
+	})
+	</script>
+</body>
+
+</html>
